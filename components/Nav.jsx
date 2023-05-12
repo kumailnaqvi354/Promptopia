@@ -81,23 +81,35 @@ const Nav = () => {
                 setToggleDropDown((prev) => !prev);
               }}
             />
-            {
-                toggleDropDown && (
-                    <div className="dropdown">
-                        <Link href="/profile"
-                        className="dropdown_link"
-                        onClick={() => setToggleDropDown(false)}
-                        > My Profile</Link>
- <Link href="/create-prompt"
-                        className="dropdown_link"
-                        onClick={() => setToggleDropDown(false)}
-                        > Create Prompts</Link>
-                <button type="button" onClick={()=>{
-                    setToggleDropDown(false)
-                signOut()}} className="mt-5 w-full black_btn"> signOut</button>
-                    </div>
-                )
-            }
+            {toggleDropDown && (
+              <div className="dropdown">
+                <Link
+                  href="/profile"
+                  className="dropdown_link"
+                  onClick={() => setToggleDropDown(false)}
+                >
+                  My Profile
+                </Link>
+                <Link
+                  href="/create-prompt"
+                  className="dropdown_link"
+                  onClick={() => setToggleDropDown(false)}
+                >
+                  Create Prompts
+                </Link>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setToggleDropDown(false);
+                    signOut();
+                  }}
+                  className="mt-5 w-full black_btn"
+                >
+                  
+                  signOut
+                </button>
+              </div>
+            )}
           </div>
         ) : (
           <>
