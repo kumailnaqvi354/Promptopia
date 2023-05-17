@@ -18,7 +18,7 @@ const userSchema = new Schema({
     type: String,
   },
 });
-
+// Checks if model is already created else create.
 const User = models.User || model("User", userSchema);
 
 export default User;
