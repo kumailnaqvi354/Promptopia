@@ -11,12 +11,16 @@ const [post, setPost] = useState({
     tag: ""
 });
 
-const create = async () =>{
+const createPrompt = async (e) =>{
      
 }
 return (
 <Form 
-
+    type="Create"
+    post={post}
+    setPost={setPost}
+    submitting={submitting}
+    handleSubmit={createPrompt}
 />
   )
 }
