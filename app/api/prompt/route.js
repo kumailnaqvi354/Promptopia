@@ -1,5 +1,4 @@
 import Prompt from "@models/prompt";
-import User from "@models/user";
 
 const { connectToDB } = require("@utils/database");
 
@@ -7,8 +6,7 @@ export const GET = async (request) => {
   try {
     await connectToDB();
 
-    const prompts = await Prompt.find();
-    console.log("prompt", prompts);
+    const prompts = await Prompt.find({}).populate('creator')
     return new Response(JSON.stringify(prompts), { status: 200 });
   } catch (error) {
     console.log("error", error);
