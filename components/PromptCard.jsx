@@ -7,7 +7,7 @@ import { useState } from "react";
 
 const PromptCard = ({ post, handleaTagClick, handleEdit, handleDelete }) => {
   const [copied, setCopied] = useState("");
-  
+
   const handleCopy = () => {
     setCopied(post.prompt);
     navigator.clipboard.writeText(post.prompt);
@@ -16,7 +16,7 @@ const PromptCard = ({ post, handleaTagClick, handleEdit, handleDelete }) => {
   return (
     <div className="prompt_card">
       <div className="flex justify-between items-start gap-5">
-        <div className="flex-1 flex justify-start items-center gap0-3 cursor-pointer">
+        <div className="flex-1 flex justify-start items-center gap-3 cursor-pointer">
           <Image
             src={post.creator.image}
             alt="image"
@@ -25,7 +25,7 @@ const PromptCard = ({ post, handleaTagClick, handleEdit, handleDelete }) => {
             className="rounded-full object-contain"
           />
           <div className="flex flex-col">
-            <h3 className="font-satoshoi font-semibold tex-gray-900">
+            <h3 className="font-satoshoi font-semibold text-gray-900">
               {post.creator.username}
             </h3>
             <p className="font-inter text-sm text-gray-500">
