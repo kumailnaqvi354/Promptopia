@@ -29,7 +29,14 @@ const Feed = () => {
     fetchPosts();
   }, []);
 
-  const handleSearchChange = (e) => {};
+  const handleSearchChange = (e) => {
+    setSearchText(e.target.value)
+      const searchResults = posts.filter((post) => (post.tag == e.target.value) || (post.creator.username == e.target.value) || (post.prompt == e.target.value))
+      console.log("searchResults", searchResults);
+      if(searchResults.length){
+        setPosts(searchResults)
+      }
+  }
   return (
     <section className="feed">
       <form className="relative w-full flex-center">
