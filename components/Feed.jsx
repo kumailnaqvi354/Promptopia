@@ -31,7 +31,7 @@ const Feed = () => {
     fetchPosts();
   }, []);
 
-  const handleSearchChange = () => {
+  const handleSearchChange = (e) => {
     console.log("here handleSearchChange");
     setSearchText(e.target.value);
     const searchResults = posts.filter(
