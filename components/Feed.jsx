@@ -9,7 +9,9 @@ const PromptCardList = ({ data, handleTagClick }) => {
         <PromptCard
           key={post._id}
           post={post}
-          handleTagClick={handleTagClick}
+          onClick={() => () =>
+            handleTagClick(post.tag) && handleTagClick(post.tag)}
+          // handleTagClick={()=>handleTagClick(post.tag) && handleTagClick(post.tag) }
         />
       ))}
     </div>
@@ -29,14 +31,21 @@ const Feed = () => {
     fetchPosts();
   }, []);
 
-  const handleSearchChange = (e) => {
-    setSearchText(e.target.value)
-      const searchResults = posts.filter((post) => (post.tag == e.target.value) || (post.creator.username == e.target.value) || (post.prompt == e.target.value))
-      console.log("searchResults", searchResults);
-      if(searchResults.length){
-        setPosts(searchResults)
-      }
-  }
+  const handleSearchChange = () => {
+    console.log("here handleSearchChange");
+    setSearchText(e.target.value);
+    const searchResults = posts.filter(
+      (post) =>
+        post.tag == e.target.value ||
+        post.creator.username == e.target.value ||
+        post.prompt == e.target.value
+    );
+    console.log("searchResults", searchResults);
+    if (searchResults.length) {
+      setPosts(searchResults);
+    }
+  };
+
   return (
     <section className="feed">
       <form className="relative w-full flex-center">
